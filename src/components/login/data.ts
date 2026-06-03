@@ -67,7 +67,32 @@ export const LoginFooterImage_1 = [
     text_1: "Association of Travel ",
     text_2: "Agents of Bangladesh",
   },
+  {
+    id: 6,
+    image: "/images/login/AirAstra.png",
+    alt: "Air Astra",
+    hasText: false,
+  },
+  {
+    id: 7,
+    image: "/images/login/Novoair.png",
+    alt: "Novoair",
+    hasText: false,
+  },
+  {
+    id: 8,
+    image: "/images/login/Flydubai.png",
+    alt: "Flydubai",
+    hasText: false,
+  },
+  {
+    id: 9,
+    image: "/images/login/BimanBangladesh.jpeg",
+    alt: "Biman Bangladesh Airlines",
+    hasText: false,
+  },
 ];
+
 
 export const LoginFooterImage_2 = [
   {
