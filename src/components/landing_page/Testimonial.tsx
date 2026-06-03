@@ -21,7 +21,7 @@ const Testimonial = () => {
   };
 
   return (
-    <section className="w-full max-w-350 mx-auto py-10 overflow-hidden">
+    <section className="w-full max-w-350 mx-auto py-10 ">
       <div className="flex flex-col lg:flex-row gap-10 items-start">
         {/* LEFT SIDE */}
         <div className="xl:w-50 shrink-0 pt-4">

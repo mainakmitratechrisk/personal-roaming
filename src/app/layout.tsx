@@ -5,13 +5,13 @@ import { Archivo, Geist } from 'next/font/google';
 import type { Metadata } from 'next';
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 
 // ✅ ROOT TAB NAME HERE
 export const metadata: Metadata = {
-  title: "Roaming Bangladesh", // 👈 tab name
-  description: "B2B Travel Marketplace",
+	title: "Roaming Bangladesh", // 👈 tab name
+	description: "B2B Travel Marketplace",
 };
 
 // Configure Archivo with the weights and subsets you need
@@ -24,8 +24,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en" className={cn(archivo.variable, "font-sans", geist.variable)} suppressHydrationWarning>
 			<body suppressHydrationWarning>
-				 <ReduxProvider>{children}</ReduxProvider>
-				</body>
+				<ReduxProvider>{children}</ReduxProvider>
+			</body>
 		</html>
 	);
 }

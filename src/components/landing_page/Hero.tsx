@@ -5,12 +5,12 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="relative bg-[#F9F9F9] overflow-hidden">
-      <div className="max-w-350 mx-auto w-full pl-[2vw]">
+      <div className="w-full pl-[2vw]">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch gap-0">
 
           {/* LEFT CONTENT */}
-          <div className="pt-32 pb-12 lg:py-20 xl:py-24">
+          <div className="pt-36 pb-12 lg:py-24 xl:py-28 flex flex-col justify-center">
             {/* Small Label */}
             <div className="mb-4 inline-block py-1">
               <span
@@ -53,18 +53,18 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* RIGHT IMAGE — contained inside the max-width, plane never cropped */}
-          <div className="relative h-[300px] sm:h-[380px] lg:h-[460px] xl:h-[540px]">
+          {/* RIGHT IMAGE — stretches full section height, starts at top-0 behind navbar */}
+          <div className="relative min-h-[300px] sm:min-h-[380px]">
             <Image
               src="/images/landing-page/airplane.png"
               alt="Travel Marketplace"
               fill
               priority
-              className="object-contain object-center"
+              className="object-cover object-center"
             />
 
             {/* Soft left fade to blend with background */}
-            <div className="absolute inset-0 bg-linear-to-r from-[#F9F9F9] via-[#F9F9F9]/10 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-r from-[#F9F9F9] via-[#F9F9F9]/20 to-transparent pointer-events-none" />
           </div>
 
         </div>
