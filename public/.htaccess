@@ -1,14 +1,10 @@
-Options -Indexes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
 
-RewriteEngine On
+  # Disable directory listing
+  Options -Indexes
+</IfModule>
 
-# If the request is for an existing file or directory, serve it directly
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-# Strip trailing slash and serve the .html file
-RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI}.html -f
-RewriteRule ^(.+?)/?$ /$1.html [L]
-
-# Fallback to 404
+# Handle 404 Not Found natively using Next.js 404 page
 ErrorDocument 404 /404.html
