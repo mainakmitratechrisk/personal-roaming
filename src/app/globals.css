@@ -1,0 +1,194 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================= */
+/* BASE */
+/* ============================= */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================= */
+/* THEME VARIABLES (TAILWIND V4 STYLE) */
+/* ============================= */
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+
+  /* ⭐ PRIMARY */
+  --color-primary: #3b2963;
+  --color-primary-foreground: #ffffff;
+
+  /* SECONDARY */
+  --color-secondary: #111111;
+  --color-secondary-foreground: #ffffff;
+
+  /* MUTED */
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #6b7280;
+
+  /* BORDER / INPUT */
+  --color-border: #e5e7eb;
+  --color-input: #e5e7eb;
+  --color-ring: #3b2963;
+
+  /* CUSTOM BRAND */
+  --color-login: #00003c;
+  --color-login-footer: #43236e;
+
+  /* RADIUS */
+  --radius: 0.625rem;
+}
+
+/* ============================= */
+/* DARK MODE */
+/* ============================= */
+
+@layer base {
+  .dark {
+    --color-background: #0b0b0f;
+    --color-foreground: #ffffff;
+
+    --color-primary: #3b2963;
+    --color-primary-foreground: #ffffff;
+
+    --color-secondary: #1a1a1a;
+    --color-secondary-foreground: #ffffff;
+
+    --color-muted: #1f1f1f;
+    --color-muted-foreground: #a1a1aa;
+
+    --color-border: #2a2a2a;
+    --color-input: #2a2a2a;
+    --color-ring: #3b2963;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    font-family: var(--font-archivo), sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-archivo), sans-serif;
+  }
+}
+
+/* Wrapper */
+.phone-input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Container */
+.phone-input-wrapper .react-international-phone-input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative; /* needed for underline */
+}
+
+/* Country selector wrapper */
+.phone-input-wrapper .react-international-phone-country-selector {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Vertical separator line */
+.phone-input-wrapper .react-international-phone-country-selector::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background-color: #d1d5db;
+}
+
+/* Country selector button */
+.react-international-phone-country-selector-button {
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Input field */
+.phone-input-wrapper .react-international-phone-input {
+  height: 48px !important;
+  flex: 1;
+  border: none !important;
+  background: transparent !important;
+  font-size: 14px;
+  color: #374151;
+  padding-left: 12px !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Dropdown */
+.react-international-phone-country-selector-dropdown {
+  z-index: 9999 !important;
+  position: absolute !important;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
+}
+
+/* Input container alignment fix */
+.react-international-phone-input-container {
+  align-items: center !important;
+}
+
+/* ========================= */
+/* 🔥 Bottom underline effect */
+/* ========================= */
+
+/* Default line */
+.phone-input-wrapper .react-international-phone-input-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: #d1d5db;
+  transition: all 0.25s ease;
+}
+
+/* Focus state (shadow + active line) */
+.phone-input-wrapper
+  .react-international-phone-input-container:focus-within::after {
+  height: 2px;
+  background-color: #3b82f6;
+
+  /* 🔥 improved smooth shadow */
+  box-shadow: 0 6px 14px rgba(59, 130, 246, 0.28);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 25s linear infinite;
+  will-change: transform;
+}
