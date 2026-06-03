@@ -4,25 +4,27 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#F9F9F9]">
-      <div className=" grid gap-x-4  grid-cols-1 lg:grid-cols-[540px_1fr]">
-        {/* LEFT CONTENT */}
-        <div className="relative z-20  bg-[#F9F9F9] pt-32 ">
-          <div className="max-w-350 mx-auto w-full px-[2vw]">
+    <section className="relative bg-[#F9F9F9] overflow-hidden">
+      <div className="max-w-350 mx-auto w-full pl-[2vw]">
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-0">
+
+          {/* LEFT CONTENT */}
+          <div className="pt-32 pb-12 lg:py-20 xl:py-24">
             {/* Small Label */}
             <div className="mb-4 inline-block py-1">
               <span
-                className=" text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[26px] font-medium  
-                tracking-wider text-[#4B2E83] "
+                className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[26px] font-medium
+                tracking-wider text-[#4B2E83]"
               >
                 BANGLADESH&apos;S LEADING
               </span>
             </div>
+
             {/* Heading */}
             <h1
-              className=" text-[32px] sm:text-[40px] md:text-[48px] lg:text-[54px] xl:text-[60px] font-semibold
-               leading-[1] tracking-[-1px] 
-              lg:tracking-[-2px] text-secondary"
+              className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[54px] xl:text-[60px] font-semibold
+               leading-[1] tracking-[-1px] lg:tracking-[-2px] text-secondary"
             >
               B2B Travel
               <br />
@@ -50,23 +52,21 @@ export default function HeroSection() {
               </button>
             </div>
           </div>
-        </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="relative h-110 lg:h-120 xl:h-140 overflow-hidden">
-          <Image
-            src="/images/landing-page/airplane.png"
-            alt="Travel Marketplace"
-            fill
-            priority
-            className="object-cover object-center"
-          />
+          {/* RIGHT IMAGE — contained inside the max-width, plane never cropped */}
+          <div className="relative h-[300px] sm:h-[380px] lg:h-[460px] xl:h-[540px]">
+            <Image
+              src="/images/landing-page/airplane.png"
+              alt="Travel Marketplace"
+              fill
+              priority
+              className="object-contain object-center"
+            />
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-linear-to-l from-transparent via-transparent to-[#f6f6f6]" />
+            {/* Soft left fade to blend with background */}
+            <div className="absolute inset-0 bg-linear-to-r from-[#F9F9F9] via-[#F9F9F9]/10 to-transparent pointer-events-none" />
+          </div>
 
-          {/* Soft Top Overlay */}
-          <div className="absolute inset-0 bg-linear-to-b from-white/10 via-transparent to-transparent" />
         </div>
       </div>
     </section>
