@@ -1,10 +1,15 @@
 <IfModule mod_rewrite.c>
+  Options -MultiViews -Indexes
   RewriteEngine On
   RewriteBase /
 
-  # Disable directory listing
-  Options -Indexes
+  # If the requested path is NOT a file and NOT a directory,
+  # route it to the Next.js 404 page. 
+  # (Valid routes like /login will bypass this because trailingSlash: true makes them physical directories)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ /404.html [L]
 </IfModule>
 
-# Handle 404 Not Found natively using Next.js 404 page
+# Handle default Apache errors natively
 ErrorDocument 404 /404.html
