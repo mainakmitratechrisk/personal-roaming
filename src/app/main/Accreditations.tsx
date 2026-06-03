@@ -16,7 +16,7 @@ const Accreditations = () => {
 
         {/* RIGHT SECTION: Flexible Row Holding All 5 Dynamic Partner Units */}
         {/* RIGHT SECTION */}
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 grow">
+        <div className="flex flex-wrap items-center justify-between gap-x-10 gap-y-6 grow">
           {accreditationData.map((partner) => (
             <div
               key={partner.id}
